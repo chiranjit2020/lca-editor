@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body{
+	font-family: 'Fira Code', monospace;
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+}
+
+header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #1863d4;
+	background: linear-gradient(to left, #4b6cb7, #182848); 
+	padding: 20px 50px;
+	margin: 0;
+	max-height: 10vh;
+}
+header .img-fluid{
+	display: inline-block;
+	width: 100px;
+	height: auto;
+}
+.editor{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+}
+section{
+	height: calc(54vh - 8vh);
+}
+section textarea{
+	background-color: #1f2227;
+	color: #eee;
+	transition: all .3s ease; 
+}
+section textarea,
+section iframe{
+	font-family: 'Fira Code', monospace;
+	font-size: 16px;
+	display: block;
+	width: 100%;
+	height: 100%;
+	resize: none;
+	border: 1px solid #333;
+	padding: 20px;
+}
+section textarea:focus{
+	background-color: #161616;
+	border: 1px solid #666;
+	outline: none;
+}
+
+
+#runBtn{
+	font-family: 'Fira Code', monospace;
+	font-size: 16px;
+	color: #fff;
+    background: linear-gradient(to right, rgba(255,255,255,.12), rgba(255,255,255,.2));
+    border: none;
+	padding: 8px 15px;
+	margin: 5px;
+    border-radius: 3px;
+    transition: all .3s ease;  
+    cursor: pointer;
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255,255,255,.1);
+    position: relative;
+    overflow: hidden;
+}
+#runBtn::after{
+	content: '';
+	position: absolute;
+	left: -50%;
+	top: 0;
+	width: 20px;
+	height: 110%;
+	background-color: rgba(255,255,255,.1);
+	transform: skewX(35deg);
+    transition: all .3s ease;  	
+}
+#runBtn:hover::after{
+	left: 130%;	
+}
+
+#runBtn:hover{
+	/*background-color: #0d50b4;*/
+	box-shadow: 0 0 15px rgba(0,0,0,.12);
+}
+#runBtn:focus{
+	outline: none;
+}
+/*Resizer*/
+#html-container{
+	position: relative;
+	height: calc(54vh - 8vh);
+}
+#html-container .resizer{
+	position: absolute;
+	right: 2px;
+	bottom: 2px;
+	width: 10px;
+	height: 10px;
+	background-image: url(../images/resize.svg);
+	z-index: 9999;
+}
+@media only screen and (max-width: 500px) {
+	.editor{
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	header{ padding: 20px 20px; max-height: 20vh;}
+}

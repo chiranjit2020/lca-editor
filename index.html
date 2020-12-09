@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LCA Editor</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<a href=""><img src="images/logo.png" alt="Learn Computer Academy Logo" class="img-fluid"></a>
+
+		<button id="runBtn">Run JS &rtrif;</button>
+	</header>
+	<div class="editor">
+
+		<section id="html-container">
+			<textarea id="html-code" placeholder="//HTML CODE" spellcheck="false"></textarea>
+		</section>
+
+		<section id="css-container">
+			<textarea id="css-code" placeholder="//CSS CODE" spellcheck="false"></textarea>
+		</section>
+		<section id="js-container">
+			<textarea id="js-code" placeholder="//JS CODE" spellcheck="false"></textarea>
+		</section>
+		<section>
+			<iframe frameborder="0" id="output"></iframe>
+		</section>
+	</div>
+
+<!-- JS  -->
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+	<script>
+			let htmlCode = document.querySelector("#html-code");
+			let cssCode = document.querySelector("#css-code");
+			let jsCode = document.querySelector("#js-code");
+			let output = document.querySelector("#output");		
+			let runBtn = document.querySelector("#runBtn");
+
+
+		function run(){
+			output.contentDocument.body.innerHTML = htmlCode.value + "<style>"+cssCode.value+"</style>";
+			output.contentWindow.eval(jsCode.value);
+
+		}
+
+		htmlCode.addEventListener("keyup", run);
+		cssCode.addEventListener("keyup", run);
+		runBtn.addEventListener("click", run);
+
+	</script>
+
+
+	<script>
+		// function syntaxHighlights(){
+		// 	let ca = document.querySelector("#html-code");
+
+		// 	let data = ca.value;
+
+		// 	res = data.match(/<\/?[a-z][0-9]?>/gmi);
+		// }
+
+		// htmlCode.addEventListener("keyup", syntaxHighlights);
+		// window.addEventListener("load", syntaxHighlights);
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+		// var p = document.querySelector('#html-container');
+
+		// p.addEventListener('click', function init() {
+		//     p.removeEventListener('click', init, false);
+		//     p.className = p.className + ' resizable';
+		//     var resizer = document.createElement('div');
+		//     resizer.className = 'resizer';
+		//     p.appendChild(resizer);
+		//     resizer.addEventListener('mousedown', initDrag, false);
+		// }, false);
+
+		// var startX, startY, startWidth, startHeight;
+
+		// function initDrag(e) {
+		//    startX = e.clientX;
+		//    startY = e.clientY;
+		//    startWidth = parseInt(document.defaultView.getComputedStyle(p).width, 10);
+		//    startHeight = parseInt(document.defaultView.getComputedStyle(p).height, 10);
+		//    document.documentElement.addEventListener('mousemove', doDrag, false);
+		//    document.documentElement.addEventListener('mouseup', stopDrag, false);
+		// }
+
+		// function doDrag(e) {
+		//    p.style.width = (startWidth + e.clientX - startX) + 'px';
+		//    p.style.height = (startHeight + e.clientY - startY) + 'px';
+		// }
+
+		// function stopDrag(e) {
+		//     document.documentElement.removeEventListener('mousemove', doDrag, false);    
+		//     document.documentElement.removeEventListener('mouseup', stopDrag, false);
+		// }
+
+	</script>
+
+
+</body>
+</html>

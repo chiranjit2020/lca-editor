@@ -27,6 +27,12 @@ header .img-fluid{
 	width: 100px;
 	height: auto;
 }
+sup{
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
 .editor{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
